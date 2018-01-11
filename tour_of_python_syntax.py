@@ -1343,84 +1343,9 @@ TypeError: 'int' object is not iterable
 >>> # primitive (string or int) remember objects are mutable (they can
 >>> # be changed in-place)!
 
->>> # as in, you probably want to do this:
+>>> # as in, you probably want to do is make the default value None and 
+>>> # test for None-ness with the 'is' keyword.
 
->>> def my_func(value, list_arg=None):
-...     if list_arg is None:
-...         list_arg = []
-...     list_arg.append(value)
-...     print(list_arg)
-
->>> my_func(3, l)
-[3, 3, 3]
-
->>> del(l)
-
->>> my_func(3, l)
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-NameError: name 'l' is not defined
-name 'l' is not defined
-
->>> l = []
-
->>> my_func(3, l)
-[3]
-
->>> l
-[3]
-
->>> my_func(3, l)
-[3, 3]
-
->>> my_func(3, l)
-[3, 3, 3]
-
->>> my_func(3, l)
-[3, 3, 3, 3]
-
->>> my_func(3, l)
-[3, 3, 3, 3, 3]
-
->>> my_func(3)
-[3]
-
->>> my_func(3)
-[3]
-
-# FIXME: does it? really? make sense?
->>> # so that makes more sense, right? if you give the function 'l' (which was
->>> # defined in the function's "parent" scope), it modifies it in-place, but
->>> # there isn't any weird behavior if you leave off that argument from the
->>> # argument list
-
->>> def my_func(value, list_arg=[]):
-...     list_arg.append(value)
-
->>> my_func(3, l)
-
->>> l
-[3, 3, 3, 3, 3, 3]
-
->>> del(l)
-
->>> l = []
-
->>> my_func(3, l)
-
->>> l
-[3]
-
->>> my_func(3, l)
-
->>> l
-[3, 3]
-
->>> my_func(3)
-
->>> l
-[3, 3]
-
->>> l
-[3, 3]
+>>> # there is an in-depth discussin of /why/ (a lot better than I could
+>>> # explain) at https://stackoverflow.com/q/1132941
 
