@@ -3,6 +3,9 @@
 # syntax-highlighted.
 #
 
+>>> # demonstrations of "equality (of value)" with the '==' comparison
+>>> # operator vs. "object identity" with the 'is' comparison operator
+
 >>> a = 3
 
 >>> b = 3
@@ -12,6 +15,10 @@ True
 
 >>> a == b
 True
+
+>>> # keep in mind that strings and integers are "primitives", which means
+>>> # that two "names" pointing at the same primitive value do NOT have
+>>> # unique IDs; they point to the same memory location
 
 >>> s1 = 'hi'
 
@@ -26,6 +33,12 @@ True
 >>> id(s2)
 4565235448
 
+>>> # what makes a Python object an object is that it has a unique
+>>> # id(), as you'll see below; furthermore, objects (usually) have
+>>> # methods that can cause them to be manipulated in place (have their
+>>> # internal values changed), without returning a copy, as with string
+>>> # concatenation and other operations on primitives
+
 >>> d1 = {}
 
 >>> d2 = {}
@@ -39,7 +52,8 @@ True
 >>> d1 is d2
 False
 
->>> # strings have methods on them
+>>> # strings have methods on them (kinda like objects), but they always
+>>> # return a copy
 
 >>> s1 = 'E.E. CUMMINGS WOULD BE AGHAST'
 
