@@ -92,12 +92,12 @@
           </section>
 
           <section>
-            <h2 class="bar">Python's BDFL</h1>
+            <h3 class="bar">Python History (cont'd) - the BFDL</h3> 
             <ul>
-              <li class="fragment">Guido (gee-doh) was employed for
+              <li class="fragment">Guido (pronounced <em>gee-doh</em>) was employed for
                 <a title="Corporation for National Research Initiatives" href="https://en.wikipedia.org/wiki/Corporation_for_National_Research_Initiatives">a non-profit</a>
                 in the States that paid for early work on Python 1.x
-                <sup><a href="https://www.youtube.com/watch?v=rTTFh7HOlC0">1</a></sup>
+                (<a href="https://www.youtube.com/watch?v=rTTFh7HOlC0">interview</a>)
               </li>
               <li class="fragment">worked at Google for about 7 years; currently employed by Dropbox</li>
               <li class="fragment">Holds the title in the Python community of
@@ -116,6 +116,10 @@
           <section>
             <h2 class="bar">Python 2 vs. Python 3</h2>
             <ul>
+              <li>
+                Introduces breaking changes in order to fix "bad" parts of
+                the language
+              </li>
               <li class="fragment">Remove "cruft" (multiple ways of doing the
                 same operations) from Python 2</li>
               <li class="fragment">Better UTF / Unicode support</li>
@@ -140,12 +144,16 @@ print("Hello from Python 3!")</code></pre>
 
             <ul>
               <li class="fragment">The regular division operator
-                (<code>/</code>)returns a float by default (use <code>//</code>
-                for the "flooring" version)</li>
-              <li class="fragment">Many parts of the standard library return
+                (<code>/</code>) returns a float by default (use <code>//</code>
+                for the old "integer division" behavior)</li>
+              <li class="fragment">Many parts of the standard library now return
                 "iterables" (generators) rather than lists
-                <span class="fragment">(more efficient because iterables can be
-                "lazy-loaded")</span>
+                <span class="fragment">
+                <ul>
+                  <li class="fragment">
+                    (can be more efficient because iterables are
+                    "lazy-loaded")</li>
+                </ul>
               </li>
               <li class="fragment">
                 See also
@@ -189,7 +197,7 @@ print("Hello from Python 3!")</code></pre>
         </section> <!-- history -->
 
         <section>
-          <h2 class="bar">Real-world / Commercial Uses</h2>
+          <h2 class="bar">Real-world Use</h2>
           <p class="nofragment"><small>Warning: not comprehensively
             researched&mdash;but Python is not an esoteric language by any
             means</small></p>
@@ -225,19 +233,39 @@ print("Hello from Python 3!")</code></pre>
             <ul>
               <li class="fragment">It reads like English (or "executable pseudocode")</li>
               <li class="fragment">"Batteries included" - comprehensive
-                standard library with <em>excellent</em> documentation</li>
-              <li class="fragment">Relatively easy to debug</li>
-              <li class="fragment">Built-in <code>help()</code> function;
-                iPython adds method completion</li>
-              
+                standard library with
+                <a href="https://www.python.org/doc/"><em>excellent</em> documentation</a>
+              </li>
               <li class="fragment">
-                See also:
+                Relatively easy to debug because of
+                language's deep introspection features
                 <ul>
-                  <li class="nofragment"><a
-                    href="http://stackabuse.com/why-beginners-should-learn-python/">Why
-                    Beginners Should Learn Python</a> on stackabuse.com</li>
-                  <li class="nofragment"><a href="https://www.biostars.org/p/10075/">Best Language for Introduction Programming Course</a> for the bioinformaticians' perspective on Biostars</li>
+                  <li class="fragment">downside: no concept of "private"</li>
+                  <li class="fragment">allows IDEs &amp; REPLs like IPython or
+                  <a href="https://github.com/jonathanslenders/ptpython">ptpython</a>
+                  to do auto-completion of imports, methods, &amp; properties</li>
                 </ul>
+              </li>
+              <li class="fragment">
+                Built-in <code>help()</code> function that works in the REPL
+                <ul>
+                  <li class="fragment">means standard library is entirely
+                  self-documented</li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h3 class="bar">Why learn Python? (cont'd)</h3>
+            <ul>
+            <h4 style="text-align:left">See also:</h4>
+              <li class="nofragment"><a
+                href="http://stackabuse.com/why-beginners-should-learn-python/">Why
+                Beginners Should Learn Python</a> on stackabuse.com</li>
+              <li class="nofragment">
+                <a href="https://www.biostars.org/p/10075/">Best Language for Introduction Programming Course</a>
+                for the bioinformaticians' perspective (Biostars)
               </li>
             </ul>
           </section>
@@ -245,16 +273,20 @@ print("Hello from Python 3!")</code></pre>
           <section>
             <h3 class="bar">Why learn Python 3 (or 2.7.x)?</h3>
             <p class="fragment">
-              This used to be a difficult question, but now it's easy: the
-              CPython 2.7.x series will (reportedly) no longer be maintained
-              after 2020.
+              This used to be a difficult question, but now it's easy:
+              <br><span class="fragment">CPython 2.7.x will no longer be
+              maintained <a href="https://pythonclock.org">after 2020</a>.</span>
             </p>
 
             <ul class="fragment">
               <li class="">Short answer:
                 <ul class="">
-                  <li class="">new code = Python 3</li>
-                  <li class="fragment">Learn what the differences are</li>
+                  <li class="">new code &rarr; Python 3</li>
+                  <li class="fragment">
+                    learn what the differences are
+                    <span class="fragment">(in case you have to port or
+                    maintain old code)</span>
+                  </li>
                   <li class="fragment">
                     There is a porting tool called <code>2to3</code> installed
                     on every computer with Python 3
@@ -283,11 +315,13 @@ print("Hello from Python 3!")</code></pre>
             resources</h3>
           <ul>
             <li class="fragment"><a href="https://wiki.python.org/moin/MovingToPythonFromOtherLanguages">MovingToPythonFromOtherLanguages</a> - on the Python Wiki</li>
-            <li class="fragment"><a href="http://rosettacode.org/wiki/Main_Page">Rosetta Code</a></li>
+            <li class="fragment">
+              <a href="http://rosettacode.org/wiki/Main_Page">Rosetta Code</a>
+              - common tasks/algorithms in lots of different languages
+            </li>
             <li class="fragment"><a
               href="http://hyperpolyglot.org/scripting">Perl, PHP, Python,
               Ruby compared</a> - hyperpolyglot.org</li>
-            <li class="fragment">(...)</li>
           </ul>
         </section>
 
@@ -369,11 +403,12 @@ print("Hello from Python 3!")</code></pre>
         </section> <!-- getting started -->
 
         <section>
-          <h2 class="bar">Online Notebooks</h2>
+          <h2 class="bar">Interactive "notebooks"</h2>
           <p>
-            In principle, similar to Mathematica's
+            Jupyter / IPython notebooks are, in principle, similar to
+            Mathematica's
             <a href="https://reference.wolfram.com/language/tutorial/UsingANotebookInterface.html">notebooks</a>
-            <br>or Matlab's <a href="http://de.mathworks.com/videos/managing-code-in-matlab-cell-mode-publishing-97208.html?requestedDomain=www.mathworks.com#">cell publishing mode</a>
+            or Matlab's <a href="http://de.mathworks.com/videos/managing-code-in-matlab-cell-mode-publishing-97208.html?requestedDomain=www.mathworks.com#">cell publishing mode</a>
           </p>
 
           <ul>
@@ -381,6 +416,14 @@ print("Hello from Python 3!")</code></pre>
               GitHub
               <a href="https://github.com/blog/1995-github-jupyter-notebooks-3">renders Jupyter notebooks</a>
               directly 
+              <ul>
+                <li class="fragment">
+                  (there's an
+                  <a target="_blank"
+                   href="https://github.com/ernstki/whirlwind-tour-of-python/blob/master/intro.ipynb">example</a>
+                  included with this project)
+                </li>
+              </ul>
             </li>
             <li class="fragment">Jupyter was originally called "iPython Notebooks," but
               now supports multiple languages</li>
@@ -448,14 +491,13 @@ print("Hello from Python 3!")</code></pre>
               </li>
             </ul>
           </section>
-
         </section> <!-- Credits -->
 
-				<!-- <section data-background="img/blueridgekitties_3823220154.jpg"> -->
-				<!-- 	<h1 class="bar">END(LICH)</h1> -->
-          <!-- <h2>vielen Dank für Ihre Zeit<br>und freundliche Aufmerksamkeit</h2> -->
-          <!-- <p><big><code>;)</code></big></p> -->
-				<!-- </section> -->
+				<section data-background="img/blueridgekitties_3823220154.jpg">
+					<h1 class="bar">SIGH, FINALLY</h1>
+          <h4>Thanks for your kind attention. You rock.</h4>
+          <p><big><code>;)</code></big></p>
+				</section>
 
 
       </div> <!--/.slides-->
