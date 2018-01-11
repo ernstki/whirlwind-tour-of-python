@@ -1,0 +1,8 @@
+# Automatically convert EOL characters on-the-fly to whatever's appropriate
+# for the platform you're on:
+* text=auto
+# This overrides the (global) config setting of core.autocrlf.
+
+# References:
+# 1. https://help.github.com/articles/dealing-with-line-endings/
+# 2. http://adaptivepatchwork.com/2012/03/01/mind-the-end-of-your-line/

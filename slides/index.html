@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="de">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>A Simple Python Intro</title>
+
+		<meta name="description" content="A simple introduction to Python">
+		<meta name="keywords" content="grosse große lab python introduction programming">
+		<meta name="keywords" content="martin luther university universität institut für informatik">
+		<meta name="author" content="Kevin Ernst">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/mine.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/sunburst.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css'
+                                                                : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+  <body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides"> 
+        <section data-background="">
+          <h1 class="bar" style="text-transform:none;">
+            <!-- <a href="https://cressint.cchmc.org/cressint/">CressInt</a> -->
+            Python
+          </h1>
+          <h2 class="bar">A quick introduction</h2>
+          <!--p>
+            A web-based <em>A. thaliana</em> functional genomics<br>intersection
+            tool, examined at the protocol level -->
+          <p>
+            <small>
+              Martin-Luther-Universität, Insitut für Informatik - Große Lab
+            </small>
+          </p>
+
+          <small>
+            <a href="mailto:Kevin.Ernst -at- cchmc.org">Kevin Ernst</a> /
+            <a href="http://twitter.com/ernstki">@ernstki</a><br><br>
+            <!-- slides: <a href="https://tf.cchmc.org/s/fosem2016">tf.cchmc.org/s/fosem2016</a> -->
+          </small>
+        </section>
+
+        <section>
+          <section>
+            <h1 class="bar">Python History</h1>
+            <ul>
+              <li class="fragment">
+                Created by Dutch programmer Guido van Rossum while employed at
+                <a href="https://en.wikipedia.org/wiki/Centrum_Wiskunde_%26_Informatica"
+                  title="Centrum Wiskunde & Informatica / National Research Institute for Mathematics and Computer Science">
+                  CWI</a> in the Netherlands
+                <ul>
+                <li>first release around 1991 (25 years ago)</li>
+                  <li class="fragment">Perl saw its first release in 1987; 28 years ago</li>
+                  <li class="fragment">Started as a "hobby" programming project,
+                    inspired by <a href="https://en.wikipedia.org/wiki/ABC_(programming_language)">ABC</a>,
+                    an earlier imperative programming environment at CWI
+                  </li>
+                </ul>
+              </li>
+              <li class="fragment">Guido worked for Google for about 7 years;
+                currently employed by Dropbox</li>
+              <li class="fragment">Holds the title in the Python community of <a href="https://en.wikipedia.org/wiki/Benevolent_dictator_for_life">BDFL</a></li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="bar">Python 2 vs. Python 3</h2>
+            <ul>
+              <li class="fragment">Remove "cruft" (multiple ways of doing the
+                same operations) from Python 2</li>
+              <li class="fragment">Better UTF / Unicode support</li>
+              <li class="fragment">The <code>print</code> statement is now
+                a function (requires parens)</li>
+              <li class="fragment">See also: <a
+                href="http://www.snarky.ca/why-python-3-exists">Why Python
+                3 exists</a> - snarky.cs</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="bar">Python Philosophy</h2>
+            <ul>
+              <li>It is often remarked that Python reads like pseudocode</li>
+              <li class="fragment">
+                Python is a multi-paradigm language:
+                <ul>
+                  <li>supports OO, functional methodology, and metaprogramming
+                  (<em>e.g.</em>, "magic methods")</li>
+                </ul>
+              </li>
+              <li class="fragment">
+                "The Zen of Python" (try: <code>python &lt;&lt;&lt;'import this'</code>)
+                <ul class="fragment">
+                  <li class="nofragment">Beautiful is better than ugly</li>
+                  <li class="nofragment">Explicit is better than implicit</li>
+                  <li class="nofragment">Simple is better than complex</li>
+                  <li class="nofragment">Complex is better than complicated</li>
+                  <li class="nofragment">Readability counts</li>
+                </ul>
+              </li>
+            </ul>
+          </section> <!-- philsophy -->
+
+        </section> <!-- history -->
+
+        <section>
+          <h2 class="bar">Real-world / Commercial Uses</h2>
+          <p class="nofragment"><small>Warning: not comprehensively researched</small></p>
+          <ul>
+            <li class="fragment">Google (YouTube); one of two languages
+              initally supported by <a href="https://en.wikipedia.org/wiki/Google_App_Engine">Google
+              App Engine</a></li>
+            <li class="fragment">Dropbox - GUI client <a href="http://wxpython-users.1045709.n5.nabble.com/quot-Who-uses-wxPython-Google-Dropbox-quot-td3409504.html">is a wxPython app</a></li>
+            <li class="fragment">
+              Scientific computing and bioinformatics
+              <ul>
+                <li class="fragment">Reference <a
+                  href="https://www.biostars.org/p/70959/">this thread</a> on
+                  Biostars
+                </li>
+                <li class="fragment">and <a href="https://www.biostars.org/p/10075/#10080">this one</a></li>
+                <li class="fragment">and <a
+                  href="http://ask.metafilter.com/125801/Best-language-for-highschool-bioinformatics-course">this
+                  Ask MetaFilter thread</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="bar">Why learn Python?</h2>
+          <ul>
+            <li class="fragment">It reads like English (or "executable pseudocode")</li>
+            <li class="fragment">"Batteries included" - comprehensive standard library</li>
+            <li class="fragment">Relatively easy to debug</li>
+            <li class="fragment">Built-in <code>help()</code> function;
+              iPython adds method completion</li>
+            
+            <li class="fragment">
+              See also:
+              <ul>
+                <li class="nofragment"><a
+                  href="http://stackabuse.com/why-beginners-should-learn-python/">Why
+                  Beginners Should Learn Python</a> on stackabuse.com</li>
+                <li class="nofragment"><a href="https://www.biostars.org/p/10075/">Best Language for Introduction Programming Course</a> for the bioinformaticians' perspective on Biostars</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="bar">Python compared to...</h2>
+          <h3>Programming "<a
+            href="https://en.wikipedia.org/wiki/Programming_chrestomathy">chrestomathy</a>"
+            resources</h3>
+          <ul>
+            <li class="fragment"><a href="http://rosettacode.org/wiki/Main_Page">Rosetta Code</a></li>
+            <li class="fragment"><a
+              href="http://hyperpolyglot.org/scripting">Perl, PHP, Python,
+              Ruby compared</a> - hyperpolyglot.org</li>
+            <li class="fragment">(...)</li>
+          </ul>
+        </section>
+
+        <section>
+          <section>
+            <h2 class="bar">Getting started</h2>
+            <h3>(online tutorials / interpreters)</h3>
+            <ul>
+              <li>Django Girl's <a href="http://tutorial.djangogirls.org/en/python_introduction/">Python introduction</a> (uses Python 3 in interactive mode)</li>
+              <li>Python.org's <a
+                href="https://www.python.org/about/gettingstarted/">Getting
+                Started</a> guide</li>
+              <li><a href="https://learnxinyminutes.com/docs/python/">Learn
+                X in Y minutes</a> (where <em>X</em>=Python)</li>
+              <li>OpenTechSchool's <a
+                href="https://opentechschool.github.io/python-beginners/">Intro
+                to programming with Python</a> (requires Python's
+                <code>tkinter</code> library); in English and German</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="bar">Getting started (cont'd)</h2>
+            <h3>(installation on a Mac)</h3>
+  
+            <pre><code class="bash">
+  # Install Python and override the system Python interpreter
+  sudo port install python27
+  # You can check the current setting with 'port select --list python'
+  sudo port select --set python python27
+  
+  # For the "improved" Python REPL (interactive mode)
+  sudo port install py27-ipython
+  sudo port select --set ipython py27-ipython
+  
+  # Matplotlib and NumPy (pulls in LLVM and X dependencies--grab a coffee)
+  sudo port install py27-matplotlib py27-numpy
+            </code></pre>
+          </section>
+
+          <section>
+            <h2 class="bar">Installing iPython / Jupyter</h2>
+            <h3>(on a Mac)</h3>
+            <pre><code class="bash">
+  sudo port install py27-jupiter
+
+  # Starting the notebook server (opens automatically in default browser)
+  jupiter-notebook-2.7
+            </code></pre>
+          </section> <!-- iPython & Jupyter -->
+
+        </section> <!-- getting started -->
+
+        <section>
+          <h2 class="bar">Online Notebooks</h2>
+          <ul>
+            <li class="nofragment">
+              <a href="https://cloud.sagemath.com">SageMathCloud</a>
+              <ul class="fragment">
+                <li>Allows embedding of R, <em>LaTeX</em>, and <a
+                  href="https://jupyter.org/">Jupyter notebooks</a></li>
+              </ul>
+            </li>
+            <li class="fragment">Jupyter was originally called "iPython Notebooks," but
+              now supports multiple languages
+              <ul>
+                <li class="fragment">Jupyter's <a
+                  href="https://nbviewer.jupyter.org/">nbviewer</a> is frequently
+                  used for library demos and "open science"</li>
+              </ul>
+            </li>
+            <li class="fragment"> principle, similar to Mathematica's <a href="https://reference.wolfram.com/language/tutorial/UsingANotebookInterface.html">notebooks</a></li>
+            <li class="fragment">or Matlab's <a href="http://de.mathworks.com/videos/managing-code-in-matlab-cell-mode-publishing-97208.html?requestedDomain=www.mathworks.com#">cell publishing mode</a></li>
+          </ul>
+        </section> <!-- online notebooks -->
+
+        <section>
+          <h2 class="bar">Live-coding demo</h2>
+          <h3>Brace yourselves...</h3>
+          <p><img style="border:none" src="img/matrix.gif"><p>
+        </section>
+
+        <section>
+          <h1 class="bar">See also</h1>
+          <ul>
+            <li><a href="https://nbviewer.jupyter.org/github/ipython/ipython/blob/4.0.x/examples/IPython%20Kernel/Plotting%20in%20the%20Notebook.ipynb">Plotting with Matplotlib</a> (Jupyter tutorial)</li>
+            <li><a href="http://matplotlib.org/users/pyplot_tutorial.html">Matplotlib
+              <code>pyplot</code> tutorial</a></li>
+            <li>Robert Johansson's <a href="https://github.com/jrjohansson/scientific-python-lectures/blob/master/README.md">Lectures on scientific computing with Python</a></li>
+            <li><a
+              href="https://www.reddit.com/r/Python/comments/3jdrw1/is_there_a_beautiful_code_collection_for_python/">A
+              collection of beautiful / idiomatic Python</a></li>
+            <li><a href="http://awesome-python.com/">Awesome Python</a></li>
+            <li><a
+              href="http://chimera.labs.oreilly.com/books/1230000000393/index.html">Python
+              Cookbook</a> - how to solve common problems with Python (O'Reilly)</li>
+            <li><a href="https://pinboard.in/u:kme/t:python">My bookmarks tagged "python"</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <!-- <section> -->
+          <!--   <h2 class="bar">Credits (cont'd)</h2> -->
+          <!--   <h3>Images</h3> -->
+          <!--   <ul> -->
+          <!--     <li>Flickr user <a -->
+          <!--       href="https://www.flickr.com/photos/blueridgekitties">blueridgekitties</a></li> -->
+          <!--     <li>Flickr user <a -->
+          <!--       href="https://www.flickr.com/photos/71183136@N08">Science and -->
+          <!--       Plants for Schools</a></li> -->
+          <!--     <li><a href="https://www.flickr.com/photos/inra_dist/"> -->
+          <!--       Institut national de la recherche agronomique</a> (INRA) -->
+          <!--     </li> -->
+          <!--     <li><a -->
+          <!--       href="https://commons.wikimedia.org/wiki/Main_Page">Wikimedia -->
+          <!--     Commons</a></li> -->
+          <!--   </ul> -->
+          <!-- </section> -->
+
+          <section>
+            <h1 class="bar">Links</h1>
+            <ul>
+              <li><a href="https://nbviewer.jupyter.org/">nbviewer</a> - the
+                Jupyter Project's online notebook viewer</li>
+              <li><a href="https://github.com/defunkt/gist">defunkt's
+                <code>gist</code> Ruby gem</a> - create GitHub gists from the command line
+              </li>
+              <li>
+                <a href="https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/">VIM
+                and Python - a Match Made in Heaven</a>
+              </li>
+            </ul>
+          </section>
+
+        </section> <!-- Credits -->
+
+				<!-- <section data-background="img/blueridgekitties_3823220154.jpg"> -->
+				<!-- 	<h1 class="bar">END(LICH)</h1> -->
+          <!-- <h2>vielen Dank für Ihre Zeit<br>und freundliche Aufmerksamkeit</h2> -->
+          <!-- <p><big><code>;)</code></big></p> -->
+				<!-- </section> -->
+
+
+      </div> <!--/.slides-->
+
+    </div> <!--/.reveal-->
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+        //parallaxBackgroundImage: 'img/solar_panels.jpg',
+        //parallaxBackgroundSize: '2100px 1500px',
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+          // https://github.com/hakimel/reveal.js/#mathjax
+          { src: 'plugin/math/math.js', async: true },
+					{ src: 'lib/js/classList.js',
+            condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js',
+            condition: function() {
+              return !!document.querySelector( '[data-markdown]' ); }
+          },
+					{ src: 'plugin/markdown/markdown.js',
+            condition: function() {
+              return !!document.querySelector( '[data-markdown]' ); }
+          },
+					{ src: 'plugin/highlight/highlight.js',
+            async: true, condition: function() {
+              return !!document.querySelector( 'pre code' ); },
+              callback: function() { hljs.initHighlightingOnLoad(); }
+          },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+      
+      // Remove background tint on all sections with 'embed' in their class list
+      Array.prototype.forEach.call(
+        document.getElementsByClassName('slide-background embed'),
+        function(e) { e.style.cssText = 'display:block;opacity:1;background-color:white'; }
+      );
+
+      //Reveal.addEventListener( 'embed', function() {
+      //    //alert('hi');
+      //}, false );
+
+      //Reveal.addEventListener( 'slidechanged', function( event ) {
+      //    // event.previousSlide, event.currentSlide, event.indexh, event.indexv
+      //    console.log(event.currentSlide);
+      //} );
+		</script>
+
+	</body>
+</html>
