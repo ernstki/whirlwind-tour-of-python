@@ -83,6 +83,8 @@ You may also find these slides useful:
 
 * [Why learn Python 3 (or 2.7.x)?][py2or3]
 * [Python compared to...][pyvs]
+* [See also][seealso]
+* [Links][links] - random stuff
 
 ## Author
 
@@ -98,10 +100,12 @@ scripts.
 [ghgui]: https://desktop.github.com/
 [git]: https://git-scm.com/downloads
 [gnupar]: https://www.gnu.org/software/parallel/
+[links]: https://ernstki.github.io/whirlwind-tour-of-python/slides/index.html#/9
 [revealjs]: https://github.com/hakimel/reveal.js/
 [py2or3]: https://ernstki.github.io/whirlwind-tour-of-python/slides/index.html#/3/2
 [pystart]: https://ernstki.github.io/whirlwind-tour-of-python/slides/index.html#/5
 [pyvs]: https://ernstki.github.io/whirlwind-tour-of-python/slides/index.html#/4
+[seealso]: https://ernstki.github.io/whirlwind-tour-of-python/slides/index.html#/8
 [seqcore]: https://dna.cchmc.org/www/main.php
 [seqsrc]: ./seq_core_downloader.py
 [slides]: https://ernstki.github.io/whirlwind-tour-of-python/
