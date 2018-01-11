@@ -4,14 +4,14 @@ The main repository for this project is:
 
     https://github.com/ernstki/whirlwind-tour-of-python
 
-A "Python 101"-level tour of the language syntax is available in
-[`tour_of_python_syntax.py`][tour].
-
 ## Slides
 
 Slides from the "Python: a quick introduction" presentation (created using
 [reveal.js][revealjs]) may be found in the `slides` subdirectory of this
 repository, and may also be viewed online [here][slides].
+
+A "Python 101"-level tour of the language syntax is available in
+[`tour_of_python_syntax.py`][tour].
 
 ## Sequencing Core downloader
 
