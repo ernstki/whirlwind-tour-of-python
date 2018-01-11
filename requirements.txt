@@ -1,6 +1,6 @@
 requests
 ptpython
-asciinema
+six
 kryten
 #flask
 #csvkit

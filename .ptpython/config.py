@@ -3,4 +3,5 @@ def configure(repl):
     # Ask for confirmation on exit.
     repl.confirm_exit = False
     repl.show_status_bar = False
+    repl.highlight_matching_parenthesis = True
     repl.use_code_colorscheme('fruity')
