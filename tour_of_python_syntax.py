@@ -59,8 +59,8 @@ False
 >>> s2
 'e.e. cummings would be aghast'
 
->>> s2.replace('aghast', 'chuffed')
-'e.e. cummings would be chuffed'
+>>> s2.replace('aghast', 'proud')
+'e.e. cummings would be proud'
 
 >>> # Python does not have a build-in regular expression (a pattern matching
 >>> # language) syntax; you must include the 're' library
@@ -73,15 +73,15 @@ False
 >>> s2
 'e.e. cummings would be aghast'
 
->>> s2 = s2.replace('aghast', 'chuffed')
+>>> s2 = s2.replace('aghast', 'proud')
 
 >>> s2
-'e.e. cummings would be chuffed'
+'e.e. cummings would be proud'
 
 >>> re.match('cummings', s2)
 
 >>> s2
-'e.e. cummings would be chuffed'
+'e.e. cummings would be proud'
 
 >>> # hrrmmm, here is the first of the Python "gotchas": re.match acts
 >>> # as if the expression given as the first argument is anchored at
