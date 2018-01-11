@@ -1,4 +1,7 @@
-kernst@popsicle [~]$ ptpython
+#
+# You can't run this file. It only has the '.py' extension so it'll be properly
+# syntax-highlighted.
+#
 >>> a = 3
 
 >>> b = 3
@@ -236,11 +239,9 @@ Any whitespace within the multi-line string becomes a literal part of the string
 >>> # example for some reason, the MACS2 project page requires you (or used
 >>> # to) to have a password to download the latest release, but they include
 >>> # an "encrypted" version of the username and password on the project page:
+>>> # http://liulab.dfci.harvard.edu/MACS/Download.html
 
 >>> macs_supersecret_password = """
-... You don't like using password to download a free software? OK, here is a challenge for you! If you can prove your computer skill so that you don't need to follow our
-...  user group, try to decode this text...
-...
 ... hfreanzr: znpf
 ...
 ... cnffjbeq: puvcfrd
@@ -371,12 +372,7 @@ AttributeError: 'tuple' object has no attribute 'append'
 >>> # let's go back to the "encoded" username and password for the MACS
 >>> # download page
 
->>> macs_supersecret_password
-"\nYou don't like using password to download a free software? OK, here is a challenge for you! If you can prove your computer skill so that you don't need to follow our user group, try to decode this text...\n\nhfreanzr: znpf\n\ncnffjbeq: puvcfrd\n"
-
 >>> print(macs_supersecret_password)
-
-You don't like using password to download a free software? OK, here is a challenge for you! If you can prove your computer skill so that you don't need to follow our user group, try to decode this text...
 
 hfreanzr: znpf
 
@@ -456,8 +452,6 @@ d
 >>> # the string "password"
 
 >>> print(macs_supersecret_password)
-
-You don't like using password to download a free software? OK, here is a challenge for you! If you can prove your computer skill so that you don't need to follow our user group, try to decode this text...
 
 hfreanzr: znpf
 
@@ -624,8 +618,6 @@ You can also decode the mystery string with the .format() function
 
 >>> print(macs_supersecret_password)
 
-You don't like using password to download a free software? OK, here is a challenge for you! If you can prove your computer skill so that you don't need to follow our user group, try to decode this text...
-
 hfreanzr: znpf
 
 cnffjbeq: puvcfrd
@@ -790,8 +782,6 @@ chipseq
 >>> # let's try the last part
 
 >>> print(macs_supersecret_password)
-
-You don't like using password to download a free software? OK, here is a challenge for you! If you can prove your computer skill so that you don't need to follow our user group, try to decode this text...
 
 hfreanzr: znpf
 
