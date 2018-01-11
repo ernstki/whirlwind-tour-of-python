@@ -24,14 +24,16 @@ develop-eggs/
 dist/
 downloads/
 eggs/
-lib/
-lib64/
 parts/
 sdist/
 var/
 *.egg-info/
 .installed.cfg
 *.egg
+
+# this was preventing reveal.js's 'lib' dir from getting committed
+#lib/
+#lib64/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
