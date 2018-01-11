@@ -2,6 +2,7 @@
 # You can't run this file. It only has the '.py' extension so it'll be properly
 # syntax-highlighted.
 #
+
 >>> a = 3
 
 >>> b = 3
@@ -48,8 +49,8 @@ False
 >>> s1
 'E.E. CUMMINGS WOULD BE AGHAST'
 
->>> # strings are immutable - there are no methods that can "mutate" or modify
->>> a string "in-place"
+>>> # strings are "immutable": there are no methods that can "mutate" or
+>>> # modify a string "in-place"
 
 >>> # so you must make a copy
 
@@ -58,8 +59,8 @@ False
 >>> s2
 'e.e. cummings would be aghast'
 
->>> s2.replace('aghast', 'proud')
-'e.e. cummings would be proud'
+>>> s2.replace('aghast', 'chuffed')
+'e.e. cummings would be chuffed'
 
 >>> # Python does not have a build-in regular expression (a pattern matching
 >>> # language) syntax; you must include the 're' library
@@ -72,20 +73,24 @@ False
 >>> s2
 'e.e. cummings would be aghast'
 
->>> s2 = s2.replace('aghast', 'proud')
+>>> s2 = s2.replace('aghast', 'chuffed')
 
 >>> s2
-'e.e. cummings would be proud'
+'e.e. cummings would be chuffed'
 
 >>> re.match('cummings', s2)
 
 >>> s2
-'e.e. cummings would be proud'
+'e.e. cummings would be chuffed'
 
->>> # here is the first of the Python "gotchas":
-... # re.match acts as if the expression given as the first argument is
-... # anchored at the beginning of the line re.search will act more like what
-... # you're used to from Perl, Ruby, or JavaScript
+>>> # hrrmmm, here is the first of the Python "gotchas": re.match acts
+>>> # as if the expression given as the first argument is anchored at
+>>> # the beginning of the line
+
+>>> # that is, as if the pattern began with the "anchor" metachar '^'
+
+>>> # 're.search()' will act more like what you're used to from Perl,
+>>> # Ruby, or JavaScript
 
 >>> re.search('cummings', s2)
 <_sre.SRE_Match object; span=(5, 13), match='cummings'>
@@ -106,12 +111,12 @@ True
 False
 
 >>> # because variables containing primitive values are really pointing at the
->>> # same memory location
+>>> # same memory location...
 
->>> # (since primitives are immutable--they have no operations that can modify
->>> # them in place)
+>>> # (primitives are immutable--they offer no methods that can modify
+>>> # them in place, only return modified copies)
 
->>> # two primitives will both be equal and identical (that is the return
+>>> # ...two primitives will both be equal and identical (that is the return
 >>> # value of '==' AND 'is' will be True)
 
 >>> # Booleans are another built-in type, and the capitalization of "True" and
@@ -146,34 +151,31 @@ False
 >>> # it is slightly more efficient to use the 'join' string method to
 >>> # concatenate them
 
->>> # 'join()' is a weird one: it operates on a string, takes an array (or
+>>> # 'join()' is a weird one: it operates on a string, takes a list (or
 >>> # really any iterable) as its argument, and
 
->>> # returns all the elements of the array/list with the string put in
+>>> # returns all the elements of the list with the string put in
 >>> # between them. It looks like this
 
 >>> delimiter = ' '
 
->>> delimiter.join(['well,' 'la', 'de', 'frickin', 'da!'])
-'well,la de frickin da!'
+>>> delimiter.join(['well,', 'la', 'de', 'frickin', 'da!'])
+'well, la de frickin da!'
 
 >>> # note that the delimiter need not be a single character!
 
 >>> delimiter = '... '
 
->>> delimiter.join(['well,' 'la', 'de', 'frickin', 'da!'])
-'well,la... de... frickin... da!'
-
 >>> delimiter.join(['well,', 'la', 'de', 'frickin', 'da!'])
 'well,... la... de... frickin... da!'
 
 >>> # I forgot to mention that Python infers string concatenation when two
->>> # strings are right next to each other, similar to C
+>>> # strings are butted up right next to each other, similar to C
 
->>> a_string = "can consist of " "multiple strings " "butted together"
+>>> a_string = "can consist of " "multiple strings " "cuddled together"
 
 >>> print(a_string)
-can consist of multiple strings butted together
+can consist of multiple strings cuddled together
 
 >>> # This can make passing long strings into functions look a bit nicer
 
@@ -194,18 +196,18 @@ can consist of multiple strings butted together
 ...       "string")
 quite a bit much longer string
 
->>> # works the same as
+>>> # works the same as...
 
 >>> print("quite a bit "
 ...       "much longer "
 ...       "string")
 quite a bit much longer string
 
->>> # the Python parser doesn't require line continuation characters if there
->>> # is an open brace, bracket, or paren but things like 'import' statements
->>> # (which have no braces or parens) *do* need line continuation characters
+>>> # ...in this case, but may be useful elsewhere, like long 'import'
+>>> # statements
 
->>> from os.path import dirname
+>>> # Nota Bene: the Python parser doesn't require line continuation characters
+>>> # if there is an open brace, bracket, or paren 
 
 >>> from os.path import dirname, \
 ...                     basename, \
@@ -247,26 +249,33 @@ Any whitespace within the multi-line string becomes a literal part of the string
 ... cnffjbeq: puvcfrd
 ... """
 
->>> # this looks like a "substitution" cypher (spoiler alert: it's ROT13)
->>> # where "hfreanzr" means "username" call it a lucky guess ;)
+>>> # this looks like a "substitution" cypher (spoiler alert: it's a "rot13"
+>>> # substitution)
 
->>> # let's store all these letters in a dictionary, along with the letters
->>> # that they translate into when they're "decoded" strings are sort of like
->>> # lists, in that they can be iterated over:
+>>> # I'll bet that "hfreanzr" means "username" -- call it a hunch ;)
 
->>> for character in "some string":
+>>> # notice that the second letter is 'f' and if "cnffjbeq" is
+>>> # "password", the double 'f' as the third and fourth characters
+>>> # makes sense, too
+
+>>> # so let's store all these letters in a dictionary, along with the
+>>> # letters that they translate into when they're "decoded"
+
+>>> # one thing to note first, strings are sort of like lists, in that
+>>> # they can be iterated over:
+
+>>> for character in "mana-mana!":
 ...     print(character)
-s
-o
 m
-e
-
-s
-t
-r
-i
+a
 n
-g
+a
+-
+m
+a
+n
+a
+!
 
 >>> # but when you really want them to behave like real list objects, you have
 >>> # to convert them with the 'list()' function dictionaries are sets of
@@ -345,6 +354,9 @@ AttributeError: 'dict' object has no attribute 'delete'
 >>> # dictionaries can also be instantiated with a list of tuples, which are
 >>> # another Python data type (they're basically immutable lists)
 
+>>> # tl;dr: you can .append() to a list or change individual indices,
+>>> # but you can't do those things to a tuple
+
 >>> a = [1,2,3]
 
 >>> a.append(4)
@@ -360,7 +372,13 @@ Traceback (most recent call last):
 AttributeError: 'tuple' object has no attribute 'append'
 'tuple' object has no attribute 'append'
 
->>> # okay, back to dictionaries...
+>>> # see, it didn't work! the 'append()' method doesn't even exist for
+>>> # tuples.
+
+>>> # okay, back to dictionaries... you can instantiate a new dictionary
+>>> # with a list of (key,value) tuples (or with keyword arguments,
+>>> # as mentioned above, as long as all the keys are valid Python
+>>> # identifiers)
 
 >>> d3 = dict([('one', 1), ('two', 2)])
 
@@ -370,7 +388,8 @@ AttributeError: 'tuple' object has no attribute 'append'
 >>> # why would you ever use this?
 
 >>> # let's go back to the "encoded" username and password for the MACS
->>> # download page
+>>> # download page, because that's the reason we started talking about
+>>> # this
 
 >>> print(macs_supersecret_password)
 
@@ -379,7 +398,8 @@ hfreanzr: znpf
 cnffjbeq: puvcfrd
 
 
->>> # let's turn the character string into a real list
+>>> # let's turn the "encrypted" or "encoded" character string into a
+>>> # real list
 
 >>> list('hfreanzr')
 ['h', 'f', 'r', 'e', 'a', 'n', 'z', 'r']
@@ -391,21 +411,21 @@ cnffjbeq: puvcfrd
 ['p', 'a', 's', 's', 'w', 'o', 'r', 'd']
 
 >>> # and let's use a function called 'zip' to turn them into a list of pairs
->>> # of tuples, that we'll use to initialize a dictionary
+>>> # of tuples, which we'll then use to initialize a dictionary
 
 >>> zip(list('hfreanzr'), list('username'))
 <zip object at 0x11168f208>
 
 >>> # here's a Python 3 pitfall: many things that used to return lists, now
 >>> # return iterables, or generators (not totally positive the difference)
+
 >>> # the long and the short of it is, you can *always* use the 'for i in
 >>> # iterable:' syntax, but if you want to SEE the list with your eyeballs
 >>> # you have to use the list() function to get the iterable to spin out all
 >>> # of its values for you
 
 >>> list(zip(list('hfreanzr'), list('username')))
-# FIXME:
-[('h', 'p'), ('f', 'a'), ('r', 's'), ('e', 's'), ('a', 'w'), ('n', 'o'), ('z', 'r'), ('r', 'd')]
+[('h', 'u'), ('f', 's'), ('r', 'e'), ('e', 'r'), ('a', 'n'), ('n', 'a'), ('z', 'm'), ('r', 'e')]
 
 >>> # OK so far?
 
@@ -418,38 +438,23 @@ cnffjbeq: puvcfrd
 
 >>> codebook
 # FIXME
-{'e': 's', 'a': 'w', 'r': 'd', 'h': 'p', 'f': 'a', 'n': 'o', 'z': 'r'}
+{'a': 'n', 'e': 'r', 'z': 'm', 'f': 's', 'r': 'e', 'n': 'a', 'h': 'u'}
 
->>> # ok, let's test
-
->>> for c in 'hfreanzr':
-...     print(d[c])
-Traceback (most recent call last):
-  File "<stdin>", line 2, in <module>
-NameError: name 'd' is not defined
-name 'd' is not defined
+>>> # OK, let's test if what we have works like we expect...
 
 >>> for c in 'hfreanzr':
 ...     print(codebook[c])
-p
-a
-d
+u
 s
-w
-o
+e
 r
-d
-
->>> # oops, it should have been "username" (duh, "password" has double
->>> # letters, should've been easy to spot)!
-
->>> codebook = dict(zip(list('hfreanzr'), list('username')))
-
->>> for c in 'hfreanzr':
-...     print(codebook[c], end='')  # suppress the line ending
+n
+a
+m
+e
 
 >>> # okay, let's add the second part that we know, the "encoded" version of
->>> # the string "password"
+>>> # the string "username"
 
 >>> print(macs_supersecret_password)
 
@@ -461,7 +466,7 @@ cnffjbeq: puvcfrd
 >>> codebook.update(zip(list('cnffjbeq'), list('password')))
 
 >>> codebook
-{'e': 'r', 'a': 'n', 'r': 'e', 'h': 'u', 'f': 's', 'j': 'w', 'b': 'o', 'n': 'a', 'q': 'd', 'c': 'p', 'z': 'm'}
+{'a': 'n', 'j': 'w', 'c': 'p', 'e': 'r', 'z': 'm', 'q': 'd', 'f': 's', 'r': 'e', 'b': 'o', 'n': 'a', 'h': 'u'}
 
 >>> # let's see how far we're getting: let's try to decode one of the unknown
 >>> # strings
@@ -473,21 +478,15 @@ Traceback (most recent call last):
 KeyError: 'p'
 'p'
 
->>> for c in 'puvcfrd':
-...     print(codebook[c])
-Traceback (most recent call last):
-  File "<stdin>", line 2, in <module>
-KeyError: 'p'
-'p'
+>>> # OH NOES! the letter 'p' isn't in our codebook yet. let's fix that
 
->>> # OH NOES! the letter 'p' isn't in our codebook yet.
->>> # let's write a function, so we don't have to do all this re-typing
->>> # and let's learn about exception handling now, too
+>>> # firstly, let's write a function, so we don't have to do all this
+>>> # re-typing and let's learn about exception handling now, too
 
 >>> def decode(some_string):
 ...     for c in some_string:
-...         print(codebook[c], end='')
-...     print()  # a final newline
+...         print(codebook[c], end='')  # suppress the newline
+...     print()  # add a newline
 
 >>> decode('puvcfrd')
 Traceback (most recent call last):
@@ -505,46 +504,48 @@ KeyError: 'p'
 ...         try:
 ...             print(codebook[c], end='')
 ...         except KeyError:
+                # string concat w/ a variable requires the '+' operator
 ...             print('<' + c + '=?>', end='')
 ...     print()  # a final newline
 
->>> # OK, we have to handle the 'KeyError'; you do exception handling in
->>> # Python by wrapping the code you expect to throw an exception in a 'try ...
->>> # except' construct
+>>> # let's see if that worked
+
 >>> decode('puvcfrd')
 <p=?><u=?><v=?>pse<d=?>
 
->>> # OK, time to talk about string formats
+>>> # OK, looks good. time for an aside about string interpolation and
+>>> # formats
 
->>> # remember, I said strings can be implicitly concatenated if they butt up
->>> # against each other
+>>> # remember, I said strings can be implicitly concatenated if they're
+>>> # nestled right up next to each other
 
 >>> # this isn't true with variable names that /contain/ strings; you have to
->>> # use the '+' (string concatenation) operator
+>>> # use the '+' (string concatenation) operator, as seen above
 
 >>> # this can be hard to type if you are substituting in a lot of variables
 >>> # in a string (plus inefficient, since strings are immutable, so each
->>> # concatenation creates a copy--at least it did in older Pythons) for this
->>> # purpose, there are several kinds of string formats in Python
+>>> # concatenation creates a copy--at least it did in older Pythons)
 
->>> s1 = 'old skool string formats, using the "%"'
+>>> # there are several ways of doing variable interpolation within
+>>> # strings in Python; maybe too many ways, I dunno
 
->>> # single and double-quotes are interchangeable in Python; I like to use
->>> # double quotes when some kind of interpolation is happening
+>>> method1 = 'old skool, using the mod ("%") operator'
 
->>> # (just a personal preference, in line with how Perl and the Bash/Bourne
->>> # shell work)
+>>> # by the by: single and double-quotes are interchangeable in Python;
+>>> # I like to use double quotes when some kind of interpolation is
+>>> # happening.
 
->>> print("The first format is: %s" % s1)
-The first format is: old skool string formats, using the "%"
+>>> # (just a personal preference, consistent with how Perl and the Bash/Bourne
+>>> # shell treat double vs. single quotes)
+
+>>> # Also, you can nest one kind of quotes inside the other to prevent having
+>>> # to "escape" quotes within quotes (that is, prefix them with a '\' in
+>>> # order to prevent Python from mistaking them for the end of the string)
+
+>>> print("The first method is: %s" % method1)
+The first method is: old skool, using the mod ("%") operator
 
 >>> method2 = 'new-style, using the .format() string method'
-
->>> printf("The second method is: {}".format(method2))
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-NameError: name 'printf' is not defined
-name 'printf' is not defined
 
 >>> print("The second method is: {}".format(method2))
 The second method is: new-style, using the .format() string method
@@ -552,36 +553,26 @@ The second method is: new-style, using the .format() string method
 >>> # both methods can "name" the replaceable parts of the string, and accept
 >>> # key-value pairs (a dict) for the replacements
 
->>> replacements = {'one': 'mystery', 'two': 'string'}
+>>> replacements = {'a': 'mystery', 'b': 'string'}
 
->>> print("Only by using old-style {two}s replacements will you uncover the {one}s word" % replacements)
-Only by using old-style {two}s replacements will you uncover the {one}s word
 
->>> print("Only by using old-style %{two}s replacements will you uncover the %{one}s word" % replacements)
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-ValueError: unsupported format character '{' (0x7b) at index 25
-unsupported format character '{' (0x7b) at index 25
-
->>> print("Only by using old-style %(two)s replacements will you uncover the %(one)s word" % replacements)
+>>> print("Only by using old-style %(b)s replacements will you discover the %(a)s word" % replacements)
 Only by using old-style string replacements will you uncover the mystery word
 
->>> print("You can also decode the {} {} with the .format() function".format(replacements))
+>>> print("You can also unravel the {} {} with the .format() function".format(replacements))
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 IndexError: tuple index out of range
 tuple index out of range
 
->>> print("You can also decode the {two} {one} with the .format() function".format(replacements))
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-KeyError: 'two'
-'two'
+>>> # oops, the .format() function expects a list of replacements as its
+>>> # arguments, not a variable representing a list; time to talk about
+>>> # "argument unpacking"
 
->>> print("You can also decode the {two} {one} with the .format() function".format(**replacements))
-You can also decode the string mystery with the .format() function
+>>> print("You can also unravel the {b} {a} with the .format() function".format(**replacements))
+You can also unravel the string mystery with the .format() function
 
->>> # here's a good place to mention argument unpackers, that's the '**' you saw
+>>> # OK, that worked. argument unpackers: that's the '**' you saw
 
 >>> # the .format() method on strings (fairly new, only on Python 2.7 or
 >>> # later) expects a list, in which case you can either omit the "name"
@@ -596,25 +587,29 @@ You can also decode the string mystery with the .format() function
 
 >>> # another way of doing it would be like this
 
->>> print("You can also decode the {} {} with the .format() function".format('string', 'mystery'))
-You can also decode the string mystery with the .format() function
+>>> print("You can also unravel the {} {} with the .format() function".format('string', 'mystery'))
+You can also unravel the string mystery with the .format() function
 
->>> # or, alternatively
+>>> # in that case, order is important! ...or, alternatively
 
->>> print("You can also decode the {a} {b} with the .format() function".format(b='string', a='mystery'))
-You can also decode the mystery string with the .format() function
+>>> print("You can also unravel the {a} {b} with the .format() function".format(b='string', a='mystery'))
+You can also unravel the mystery string with the .format() function
 
->>> # OK, back to our 'decode' function then:
+>>> # order there was unimportant, because you told the format string exactly
+>>> # where you wanted 'a' and 'b' to be placed
+
+>>> # OK, back to our 'decode' function then, finally:
 
 >>> def decode(some_string):
 ...     for c in some_string:
 ...         try:
 ...             print(codebook[c], end='')
 ...         except KeyError:
-...             print("<%s=?>" % c, end='')  # new-style: print("<{}=?>".format(c), end='')
+...             print("<%s=?>" % c, end='')  
+...             # or new-style: print("<{}=?>".format(c), end='')
 ...     print()  # a final newline
 
->>> # it still works the same, though.
+>>> # it still works the same, though, trust me.
 
 >>> print(macs_supersecret_password)
 
@@ -625,31 +620,40 @@ cnffjbeq: puvcfrd
 
 >>> # let's work on the missing letters in our "codebook"
 
->>> # maybe if we sort the keys, we can discover a pattern except, remember
->>> # that dictionaries can't be relied on to return the keys in any kind of
->>> # predictable order
+>>> # maybe if we sort the keys, we can discover a pattern
 
->>> keys(codebook)
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-NameError: name 'keys' is not defined
-name 'keys' is not defined
+>>> # except, remember that dictionaries can't be relied on to return
+>>> # the keys in any kind of predictable order, /least/ of all the order you
+>>> # inserted them in
 
 >>> codebook.keys()
 dict_keys(['e', 'a', 'r', 'h', 'f', 'j', 'b', 'n', 'q', 'c', 'z'])
 
->>> # key lookups are done with a hash table, and it's a kind of data
->>> # structure that doesn't respect the order that you inserted items into it
+>>> # key lookups are done with a hash table, which is a kind of data
+>>> # structure that is very fast for lookups but doesn't respect the
+>>> # order that you inserted items into it
 
->>> coebook.sort()
+>>> codebook.sort()
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
-NameError: name 'coebook' is not defined
-name 'coebook' is not defined
+AttributeError: 'dict' object has no attribute 'sort'
 
->>> # can't just sort a hashed data structure; you have to operate on the keys,
->>> # using an intermediate variable
+>>> # see, there's not even a method for it. you can't just sort a
+>>> # hashed data structure; you'd have to operate on the keys or the
+>>> # "items", using an intermediate variable
 
+
+>>> # unfortunately, you can't sort dict_items (the kind of object
+>>> # returned by dict.items()), see?
+
+>>> codebook.items().sort()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'dict_items' object has no attribute 'sort'
+'dict_items' object has no attribute 'sort'
+
+>>> # we can get a list of tuples out, though, with the .items() method
+>>> # on dicts, and then sort /that/ list
 
 >>> codebook.items()
 dict_items([('e', 'r'), ('a', 'n'), ('r', 'e'), ('h', 'u'), ('f', 's'), ('j', 'w'), ('b', 'o'), ('n', 'a'), ('q', 'd'), ('c', 'p'), ('z', 'm')])
@@ -657,15 +661,10 @@ dict_items([('e', 'r'), ('a', 'n'), ('r', 'e'), ('h', 'u'), ('f', 's'), ('j', 'w
 >>> list(codebook.items())
 [('e', 'r'), ('a', 'n'), ('r', 'e'), ('h', 'u'), ('f', 's'), ('j', 'w'), ('b', 'o'), ('n', 'a'), ('q', 'd'), ('c', 'p'), ('z', 'm')]
 
->>> list(codebook.items()).sort()
-
->>> # we can get a list of tuples out, though, with the .items() method on dict
-
->>> codebook.items().sort()
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-AttributeError: 'dict_items' object has no attribute 'sort'
-'dict_items' object has no attribute 'sort'
+>>> # I'm using Python 3, so the behavior of what you see above might
+>>> # be slightly different than what you see if you use 2.7; I need
+>>> # to turn that not-quite-list into a real list in order to use the
+>>> # .sort() method on lists.
 
 >>> # we can turn a list of dictionary items into a "normal" list, which has
 >>> # a .sort() method, but the .sort() method operates in-place; so if you
@@ -675,38 +674,45 @@ AttributeError: 'dict_items' object has no attribute 'sort'
 
 >>> dictitems
 
+>>> # wait, wha? it's empty!
+
 >>> # surprising, right? that's because list() returned an as-yet unnamed
 >>> # list, then that anonymous list was sorted in place. Sort doesn't return
 >>> # anything, so there was nothing on the right hand side of the assignment
 >>> # to assign to dictitems.
 
->>> # to solve that, save the list first, then sort it.
+>>> # to solve that, save the list first, THEN sort it.
 
 >>> dictitems = list(codebook.items())
 
 >>> dictitems
 [('e', 'r'), ('a', 'n'), ('r', 'e'), ('h', 'u'), ('f', 's'), ('j', 'w'), ('b', 'o'), ('n', 'a'), ('q', 'd'), ('c', 'p'), ('z', 'm')]
 
->>> dictiems.sort()
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-NameError: name 'dictiems' is not defined
-name 'dictiems' is not defined
-
 >>> dictitems.sort()
+
+>>> # remember .sort() is in-place, that means it "mutates" the variable
+>>> # it acts on, but doesn't return anything
 
 >>> dictitems
 [('a', 'n'), ('b', 'o'), ('c', 'p'), ('e', 'r'), ('f', 's'), ('h', 'u'), ('j', 'w'), ('n', 'a'), ('q', 'd'), ('r', 'e'), ('z', 'm')]
 
->>> # OK, I'm seeing a pattern here (spoiler: again it's ROT13, a.k.a. a
->>> # substitution or Caesar cypher) but let's put the reverse of all the
->>> # letters in the dictionary also, since 'n' <--> 'a' then 'a' <--> 'n',
->>> # for example here's a good place to use a Python "list comprehension";
->>> # they're like compact for loops that operate on all the elements of a
->>> # list, and return a list
+>>> # OK, I'm seeing a pattern here (spoiler: again it's rot13 encoding,
+>>> # a.k.a. a substitution or Caesar cypher, and there's a Unix command
+>>> # 'rot13' that can deocde this)
+
+>>> # but just for kicks, let's pretend we /don't/ know and add the
+>>> # reverse of all the letters in the dictionary also, since 'n' <-->
+>>> # 'a' then 'a' <--> 'n', for example
+
+>>> # here's a good place to use a Python "list comprehension"...
+
+>>> # list comprehensions are one of my favorite features of Python;
+>>> # they're like compact for loops that operate on all the elements of
+>>> # a list, and return a list
 
 >>> # maybe there are better ways of doing this, but I see a way to reverse
->>> # all the items in each tuple in 'dictitems'
+>>> # all the items in each tuple in 'dictitems' with a listcomp that "emits"
+>>> # the items of the tuple with their indexes reversed
 
 >>> reverses = [(i[1], i[0]) for i in dictitems]
 
@@ -724,38 +730,13 @@ Traceback (most recent call last):
 ValueError: dictionary update sequence element #0 has length 1; 2 is required
 dictionary update sequence element #0 has length 1; 2 is required
 
->>> t
-('n', 'a')
-
->>> reverses
-[('n', 'a'), ('o', 'b'), ('p', 'c'), ('r', 'e'), ('s', 'f'), ('u', 'h'), ('w', 'j'), ('a', 'n'), ('d', 'q'), ('e', 'r'), ('m', 'z')]
-
->>> for t in reverses:
-...     print(t)
-('n', 'a')
-('o', 'b')
-('p', 'c')
-('r', 'e')
-('s', 'f')
-('u', 'h')
-('w', 'j')
-('a', 'n')
-('d', 'q')
-('e', 'r')
-('m', 'z')
-
->>> for t in reverses:
-...     codebook.update(t)
-Traceback (most recent call last):
-  File "<stdin>", line 2, in <module>
-ValueError: dictionary update sequence element #0 has length 1; 2 is required
-dictionary update sequence element #0 has length 1; 2 is required
-
->>> codebook.update([('n', 'a')])
-
 >>> # oops, the documentation for .update() says it expects keyword arguments
 >>> # like key='value' or an ITERABLE (e.g., list) of tuples representing key,
 >>> # value pairs
+
+>>> # for example, this works because it's a (one-item) list of tuples
+
+>>> codebook.update([('n', 'a')])
 
 >>> # so what we actually want to do is
 
@@ -772,14 +753,14 @@ dictionary update sequence element #0 has length 1; 2 is required
 ch<v=?>pseq
 
 >>> # OK, that obviously says "chipseq", so we now know the code for 'v' and
->>> # 'i'
+>>> # 'i'; let's update our codebook now with both of those...
 
 >>> codebook.update({'v': 'i', 'i': 'v'})
 
 >>> decode('puvcfrd')
 chipseq
 
->>> # let's try the last part
+>>> # let's try the last part of the "secret code"
 
 >>> print(macs_supersecret_password)
 
@@ -791,9 +772,9 @@ cnffjbeq: puvcfrd
 >>> decode('znpf')
 macs
 
->>> # aha!
+>>> # aha! code broken! the username is 'macs' and the password is 'chipseq'
 
->>> # will it work on a multi-line string, I wonder?
+>>> # will our 'decode' function work on a multi-line string, I wonder?
 
 >>> code = """hfreanzr: znpf
 ...
@@ -838,26 +819,31 @@ Namespaces are one honking great idea -- let's do more of those!
 
 >>> my_favorite = 'Readability counts.'
 
->>> # Python's PEP8 standard calls for four-space indents, no tabs
+>>> # on that note: Python's PEP8 coding standard calls for four-space
+>>> # indents, no tabs
 
 >>> # it leaves it up to you whether you want to align things inside the
->>> # parens of function calls
+>>> # parens of function calls, or line up variable declarations / definitions
+>>> # on the '=' like some people like to do
 
 >>> # it also limits line length to < 80 characters (79 in the standard
 >>> # library, and 72 for strings with "fewer structural restrictions" such
->>> # as docstrings) a tool called EditorConfig (editorconfig.org) can help
->>> # you achieve harmony among different collaborators, using different
->>> # editors--by maintaining an easy-to-read config file as part of your
->>> # project, which plugins for various editors (from VS to Vim) will read
->>> # and honor the settings within
+>>> # as docstrings)
+
+>>> # a tool called EditorConfig (editorconfig.org) can help you achieve
+>>> # harmony among different collaborators, using different editors--by
+>>> # maintaining an easy-to-read config file as part of your project,
+>>> # which plugins for various editors (from VS to Vim) will read and
+>>> # honor the settings found within
 
 >>> # let's talk about a few other potential pitfalls
 
 >>> # (for a more comprehensive list--some are very advanced, and
 >>> # you might never notice them in day-to-day programming), see
->>> # https://wiki.python.org/moin/PythonWarts) we talked about .join() being
->>> # a method on a string (the "joiner") not on a list like in some other
->>> # languages, notably Perl
+>>> # https://wiki.python.org/moin/PythonWarts)
+
+>>> # we talked about .join() being a method on a string (the "joiner")
+>>> # not on a list like in some other languages, notably Perl
 
 >>> # it might help to use an "idiom" like this
 
@@ -913,8 +899,8 @@ sequence item 0: expected str instance, int found
 >>> # it helps if you think of the indexes in the "slice" as representing the
 >>> # space /before/ the letters you want.
 
->>> # you'll probably find the ASCII-art diagram here of some use:
-... # https://wiki.python.org/moin/MovingToPythonFromOtherLanguages#Tips_for_.22Thinking_in_Python.22
+>>> # you'll probably find the ASCII-art diagram from this page useful
+... # https://wiki.python.org/moin/MovingToPythonFromOtherLanguages
 
 >>> python_list_indexes_and_slices = """
 ... Python indexes and slices for a six-element list.
@@ -937,13 +923,18 @@ sequence item 0: expected str instance, int found
 >>> # ======= DANGER WILL ROBINSON!!! DANGER!!! =======
 
 >>> # oh man, by the way here's the worst one ever, and I don't even know why
->>> # this is allowed
+>>> # this is allowed (I actually did this to myself, while writing this
+>>> # tutorial--for the I don't-know-how-manyth-time)
 
 >>> # you can actually accidentally overwrite built-in functions like 'list()'
 >>> # (like I just did above and didn't realize it) with out ANY WARNING from
->>> # Python
+>>> # Python!
 
 >>> list = [1,2,3,4]  # overwrites function 'list' with list 'list'!
+
+>>> # now this weird error message happens if you expect the 'list' that's part
+>>> # of the Python language to still be available for you to use; a whole
+>>> # lotta nope!
 
 >>> l = list('hello world')
 Traceback (most recent call last):
@@ -951,25 +942,22 @@ Traceback (most recent call last):
 TypeError: 'list' object is not callable
 'list' object is not callable
 
->>> # that's the cause of the "'list' object is not callable" error message,
->>> # above
-
 >>> # in the REPL ('python', 'ipython', etc.) you can do this to rescue the
 >>> # situation:
 
 >>> del(list)  # this rescues the list() function we obliterated above
 
->>> # if you do this in a program you'll just have bugs and weird behavior
+>>> # but if you do this in a program you'll just have bugs and weird behavior
 >>> # that might be difficult to debug
 
 >>> # WATCH OUT FOR THAT ONE!
 
->>> l = list('hello world')
+>>> # now, back to regularly scheduled programming
+
+>>> l = list('hello world')  # works as expected again
 
 >>> l
 ['h', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd']
-
->>> # back to regularly scheduled programming
 
 >>> # OK, let's say we want 'hello' from the string above; that's staring from
 >>> # the 0th "in-between-space" and going to the 5th "in-between"
@@ -1000,6 +988,7 @@ TypeError: 'list' object is not callable
 'd'
 
 >>> # also of note: you can't reverse a string, but you can reverse a list
+>>> # (Ruby has no problem with this)
 
 >>> 'hello'.reverse()
 Traceback (most recent call last):
@@ -1015,11 +1004,14 @@ AttributeError: 'str' object has no attribute 'reverse'
 >>> l.reverse
 <built-in method reverse of list object at 0x11134b848>
 
+>>> # oops, forgot the parentheses
+
 >>> l.reverse()
 
->>> # returns None, because it modifies the list in-place
+>>> # returns None, because it modifies the list in-place, but we can check to
+>>> # see if it worked
 
->>> print(l)
+>>> l
 ['o', 'l', 'l', 'e', 'h']
 
 >>> # you can reassemble a list into a string by using the empty string as the
@@ -1034,8 +1026,9 @@ AttributeError: 'str' object has no attribute 'reverse'
 >>> # https://docs.python.org/X.Y/library/index.html, where 'X.Y' is the Python
 >>> # major.minor version (e.g., 3.5)
 
->>> # after including something from the standard library, you can use the
->>> # help() function built into the REPL (Read-Eval-Print-Loop)
+>>> # after including something from the standard library with the
+>>> # 'import' statement, you can use the help() function built into the
+>>> # REPL (Read-Eval-Print-Loop) to get help on individual objects functions
 
 >>> import os
 
@@ -1072,16 +1065,6 @@ AttributeError: 'str' object has no attribute 'reverse'
 ...     foodict = {}
 ...     foolist = []
 ...     fooint  = 3
-
->>> class FooObject:
-...     foodict = {}
-...     foolist = []
-...     fooint  = 3
-
->>> class FooObject:
-...     foodict = {}
-...     foolist = []
-...     fooint  = 3
 ...     def __repr__(self):
 ...         """
 ...         Returns the "official" string representation of FooObjects
@@ -1093,6 +1076,8 @@ AttributeError: 'str' object has no attribute 'reverse'
 ...         return "<FooObject #{}>".format(id(self))
 
 >>> # notice that class methods need to include 'self' as the first argument
+>>> # this is just a thing you have to remember; you'll get a runtime error
+>>> # from the interpreter if you forget
 
 >>> # let's instantiate a new FooObject and see what happens when we try to
 >>> # print it out
@@ -1102,7 +1087,8 @@ AttributeError: 'str' object has no attribute 'reverse'
 >>> foo
 <FooObject #4567029800>
 
->>> # much better!
+>>> # much better! at least, it's what we /asked/ for, instead of some
+>>> # generic default
 
 >>> # now let's look at all the variables that are "in scope" for that object
 
@@ -1115,23 +1101,28 @@ AttributeError: 'str' object has no attribute 'reverse'
 >>> # this is called "introspection" and it's something Python is
 >>> # exceptionally good at
 
->>> # it's worth mentioning, thought, that Python has no "private" variables
+>>> # it's worth mentioning, thought, that Python has no notion of
+>>> # "private" variables
 
 >>> # it's long been the policy of the language creator that modules
 >>> # shouldn't try to manipulate the internal data structures of other
 >>> # modules, but this is allowed between "consenting adults" (see also:
->>> # https://github.com/kennethreitz/python-guide/issues/525) a common
->>> # convention is to make internal "private" variables prefixed by two
->>> # underscores, something the Python runtime does its best to obfuscate,
->>> # but which can still be manipulated by other modules with some effort
->>> # the upside of all this is great support for auto-completion in the REPL
->>> # (like 'ptpython') and IDEs, and better debugging error messages
+>>> # https://github.com/kennethreitz/python-guide/issues/525)
+
+>>> # a common convention is to make internal "private" variables
+>>> # prefixed by two underscores, something the Python runtime does its
+>>> # best to obfuscate, but which can still be manipulated by other
+>>> # modules with some effort
+
+>>> # the upside of all this is great support for auto-completion in
+>>> # the REPL (like 'ptpython') and IDEs, and better debugging error
+>>> # messages
 
 >>> # let's see about that "docstring" thing
 
 >>> foo.__doc__
 
->>> # nothing.
+>>> # nothing. let's fix that.
 
 >>> class FooObject:
 ...     """
@@ -1154,7 +1145,8 @@ AttributeError: 'str' object has no attribute 'reverse'
 
 >>> foo.__doc__
 
->>> # oh, doh!, we redefined FooObject!
+>>> # still nothing... oh, doh!, we modified the class, but this 'foo'
+>>> # is an instance of the /old/ class! let's try again...
 
 >>> foo = FooObject()
 
@@ -1167,6 +1159,28 @@ AttributeError: 'str' object has no attribute 'reverse'
 
 >>> help(FooObject)
 
+# the output goes through a pager like 'less', but here's what it would
+# look like
+#
+#     Help on class FooObject in module __main__:
+#     
+#     class FooObject(builtins.object)
+#      |  The FooObject class
+#      |
+#      |  Contains some random data structures, but doesn't really do anything useful
+#      |
+#      |  Methods defined here:
+#      |
+#      |  __repr__(self)
+#      |      Returns the "official" string representation of FooObjects
+#      |      Here's the convention for documenting functions and classes in Python
+#      |      It's a triple-quoted (multi-line) string, called a "docstring"
+#      |
+#      |  ----------------------------------------------------------------------
+#      |  Data descriptors defined here:
+#      |
+#      |  __dict__
+#     :
 
 >>> # did you see it? it became part of the output of the help() function
 
@@ -1179,12 +1193,27 @@ AttributeError: 'str' object has no attribute 'reverse'
 
 >>> help(foo.__repr__)
 
+# which is again paged with 'less' but it would look like
+#
+#     Help on method __repr__ in module __main__:
+#     
+#     __repr__() method of __main__.FooObject instance
+#         Returns the "official" string representation of FooObjects
+#         Here's the convention for documenting functions and classes in Python
+#         It's a triple-quoted (multi-line) string, called a "docstring"
+#     (END)
 
 >>> # docstrings undergo some reformatting (as mentioned in this PEP:
 >>> # https://www.python.org/dev/peps/pep-0257) so that the leading and
 >>> # trailing whitespace doesn't throw things off in the help() display
 
 >>> help(os.path.basename)
+
+#   Help on function basename in module posixpath:
+#   
+#   basename(p)
+#       Returns the final component of a pathname
+#   (END)
 
 
 >>> os.path.basename.__doc__
@@ -1196,7 +1225,6 @@ AttributeError: 'str' object has no attribute 'reverse'
 >>> # see all that extra whitespace? it gets trimmed off
 
 >>> help(foo.__repr__)
-
 
 >>> # OK, now some things to watch out for between Python 2.x (still the
 >>> # default on many Linux systems) and 3.x (the future)
@@ -1303,15 +1331,19 @@ TypeError: 'int' object is not iterable
 [3, 3]
 
 >>> # you'd expect that list_arg would get a new empty list every time the
->>> # function is called, but nope that list is created and allocated *once*,
->>> # when the function is defined, and it persists between subsequent
->>> # calls to the function, which is why it got appended to, rather than
->>> # recreated the second time we called my_func(), above you probably want
->>> # to use 'None' as a default value for a function where you need a more
->>> # complicated "default" than just a simple primitive (string or int)
->>> # remember objects are mutable (they can be changed in-place)!
+>>> # function is called, but nope
 
->>> # you probably want to do this:
+>>> # that list is created and allocated *once*, when the function is
+>>> # defined, and it persists between subsequent calls to the function,
+>>> # which is why it got appended to, rather than recreated the second
+>>> # time we called my_func(), above
+
+>>> # you probably want to use 'None' as a default value for a function
+>>> # where you need a more complicated "default" than just a simple
+>>> # primitive (string or int) remember objects are mutable (they can
+>>> # be changed in-place)!
+
+>>> # as in, you probably want to do this:
 
 >>> def my_func(value, list_arg=None):
 ...     if list_arg is None:
@@ -1356,12 +1388,7 @@ name 'l' is not defined
 >>> my_func(3)
 [3]
 
->>> my_func(3)
-[3]
-
->>> my_func(3)
-[3]
-
+# FIXME: does it? really? make sense?
 >>> # so that makes more sense, right? if you give the function 'l' (which was
 >>> # defined in the function's "parent" scope), it modifies it in-place, but
 >>> # there isn't any weird behavior if you leave off that argument from the
