@@ -7,8 +7,8 @@
 		<title>A Simple Python Intro</title>
 
 		<meta name="description" content="A simple introduction to Python">
-		<meta name="keywords" content="grosse große lab python introduction programming">
-		<meta name="keywords" content="martin luther university universität institut für informatik">
+		<meta name="keywords" content="weirauch lab python introduction programming">
+		<meta name="keywords" content="cincinnati children's hospital medical center">
 		<meta name="author" content="Kevin Ernst">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -48,26 +48,26 @@
             <!-- <a href="https://cressint.cchmc.org/cressint/">CressInt</a> -->
             Python
           </h1>
-          <h2 class="bar">A quick introduction</h2>
+          <h2 class="bar">A whirlwind tour</h2>
           <!--p>
             A web-based <em>A. thaliana</em> functional genomics<br>intersection
             tool, examined at the protocol level -->
           <p>
             <small>
-              Martin-Luther-Universität, Insitut für Informatik - Große Lab
+              Cincinnati Children's Hospital Medical Center - Weirauch Lab
             </small>
           </p>
 
           <small>
             <a href="mailto:Kevin.Ernst -at- cchmc.org">Kevin Ernst</a> /
-            <a href="http://twitter.com/ernstki">@ernstki</a><br><br>
+            <a href="http://github.com/ernstki">@ernstki</a><br><br>
             <!-- slides: <a href="https://tf.cchmc.org/s/fosem2016">tf.cchmc.org/s/fosem2016</a> -->
           </small>
         </section>
 
         <section>
           <section>
-            <h1 class="bar">Python History</h1>
+            <h2 class="bar">Python History</h2>
             <ul>
               <li class="fragment">
                 Created by Dutch programmer Guido van Rossum while employed at
@@ -75,17 +75,41 @@
                   title="Centrum Wiskunde & Informatica / National Research Institute for Mathematics and Computer Science">
                   CWI</a> in the Netherlands
                 <ul>
-                <li>first release around 1991 (25 years ago)</li>
+                  <li>the "reference implementation" is an interpreter written in
+                    C, but Java, C#, and <a href="https://en.wikipedia.org/wiki/Just-in-time_compilation"
+                    title="Just-in-time compilation">JIT</a> versions also exist</li>
+                  <li>first release around 1991 (26 years ago)</li>
                   <li class="fragment">Perl saw its first release in 1987; 28 years ago</li>
-                  <li class="fragment">Started as a "hobby" programming project,
-                    inspired by <a href="https://en.wikipedia.org/wiki/ABC_(programming_language)">ABC</a>,
-                    an earlier imperative programming environment at CWI
-                  </li>
+                  <li class="fragment">It's <em>just about</em> as old as the Bash shell</li>
                 </ul>
               </li>
-              <li class="fragment">Guido worked for Google for about 7 years;
-                currently employed by Dropbox</li>
-              <li class="fragment">Holds the title in the Python community of <a href="https://en.wikipedia.org/wiki/Benevolent_dictator_for_life">BDFL</a></li>
+
+              <li class="fragment">Started as a "hobby" programming project,
+                inspired by <a href="https://en.wikipedia.org/wiki/ABC_(programming_language)">ABC</a>,
+                an earlier imperative programming environment at CWI
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="bar">Python's BDFL</h1>
+            <ul>
+              <li class="fragment">Guido (gee-doh) was employed for
+                <a title="Corporation for National Research Initiatives" href="https://en.wikipedia.org/wiki/Corporation_for_National_Research_Initiatives">a non-profit</a>
+                in the States that paid for his work on Python back in the 1.x
+                days<sup><a href="https://www.youtube.com/watch?v=rTTFh7HOlC0">1</a></sup>
+              </li>
+              <li class="fragment">worked at Google for about 7 years; currently employed by Dropbox</li>
+              <li class="fragment">Holds the title in the Python community of
+                "<a href="https://en.wikipedia.org/wiki/Benevolent_dictator_for_life">Benevolent Dictator for Life</a>,"
+                which means he has the final say on design decisions, but
+                usually defers to a community process to resolve disputes
+                <ul class="fragment">
+                  <li>see: the <a href="https://www.python.org/dev/peps/">Python Enhancement
+                    Proposals</a>
+                    (PEPs)</li>
+                </ul>
+              </li>
             </ul>
           </section>
 
@@ -96,10 +120,44 @@
                 same operations) from Python 2</li>
               <li class="fragment">Better UTF / Unicode support</li>
               <li class="fragment">The <code>print</code> statement is now
-                a function (requires parens)</li>
-              <li class="fragment">See also: <a
-                href="http://www.snarky.ca/why-python-3-exists">Why Python
-                3 exists</a> - snarky.cs</li>
+                a function (requires parens)
+
+                <pre><code class="python"># Python 2.x
+print "Hello from Python 2.7.something!"
+
+# Python 3.x
+print("Hello from Python 3!")
+
+# Python 2.7.x - use 'print()' for forward compatibility
+from __future__ import print_function
+print("Hello from Python 3!")</code></pre> 
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="bar">Python 2 vs. Python 3 (cont'd)</h2>
+
+            <ul>
+              <li class="fragment">The regular division operator
+                (<code>/</code>)returns a float by default (use <code>//</code>
+                for the "flooring" version)</li>
+              <li class="fragment">Many parts of the standard library return
+                "iterables" (generators) rather than lists
+                <span class="fragment">(more efficient because iterables can be
+                "lazy-loaded")</span>
+              </li>
+              <li class="fragment">See also</h3>
+                <ul>
+                  <li>
+                    <a href="https://docs.python.org/3/howto/pyporting.html">Porting Python 2 Code to Python 3</a>
+                    - python.org
+                  </li>
+                  <li>
+                    <a href="http://www.snarky.ca/why-python-3-exists">Why Python
+                    3 exists</a> - snarky.cs</li>
+                </ul>
+              </li>
             </ul>
           </section>
 
@@ -131,7 +189,9 @@
 
         <section>
           <h2 class="bar">Real-world / Commercial Uses</h2>
-          <p class="nofragment"><small>Warning: not comprehensively researched</small></p>
+          <p class="nofragment"><small>Warning: not comprehensively
+            researched&mdash;but Python is not an esoteric language by any
+            means</small></p>
           <ul>
             <li class="fragment">Google (YouTube); one of two languages
               initally supported by <a href="https://en.wikipedia.org/wiki/Google_App_Engine">Google
@@ -151,28 +211,68 @@
                 </li>
               </ul>
             </li>
+            <li class="fragment">
+              Python is also <a href="https://duckduckgo.com/?q=python+data+science">hugely popular</a>
+              in the field of "data science"
+            </li>
           </ul>
         </section>
 
         <section>
-          <h2 class="bar">Why learn Python?</h2>
-          <ul>
-            <li class="fragment">It reads like English (or "executable pseudocode")</li>
-            <li class="fragment">"Batteries included" - comprehensive standard library</li>
-            <li class="fragment">Relatively easy to debug</li>
-            <li class="fragment">Built-in <code>help()</code> function;
-              iPython adds method completion</li>
-            
-            <li class="fragment">
-              See also:
-              <ul>
-                <li class="nofragment"><a
-                  href="http://stackabuse.com/why-beginners-should-learn-python/">Why
-                  Beginners Should Learn Python</a> on stackabuse.com</li>
-                <li class="nofragment"><a href="https://www.biostars.org/p/10075/">Best Language for Introduction Programming Course</a> for the bioinformaticians' perspective on Biostars</li>
-              </ul>
-            </li>
-          </ul>
+          <section>
+            <h2 class="bar">Why learn Python?</h2>
+            <ul>
+              <li class="fragment">It reads like English (or "executable pseudocode")</li>
+              <li class="fragment">"Batteries included" - comprehensive
+                standard library with <em>excellent</em> documentation</li>
+              <li class="fragment">Relatively easy to debug</li>
+              <li class="fragment">Built-in <code>help()</code> function;
+                iPython adds method completion</li>
+              
+              <li class="fragment">
+                See also:
+                <ul>
+                  <li class="nofragment"><a
+                    href="http://stackabuse.com/why-beginners-should-learn-python/">Why
+                    Beginners Should Learn Python</a> on stackabuse.com</li>
+                  <li class="nofragment"><a href="https://www.biostars.org/p/10075/">Best Language for Introduction Programming Course</a> for the bioinformaticians' perspective on Biostars</li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="bar">Why learn Python 3 (or 2.7.x)?</h2>
+            <p class="fragment">
+              This used to be a difficult question, but now it's easy: the
+              CPython 2.7.x series will (reportedly) no longer be maintained
+              after 2020.
+            </p>
+
+            <ul class="fragment">
+              <li class="">Short answer:
+                <ul class="">
+                  <li class="">new code = Python 3</li>
+                  <li class="fragment">Learn what the differences are</li>
+                  <li class="fragment">
+                    There is a porting tool called <code>2to3</code> installed
+                    on every computer with Python 3
+                  </li>
+                </ul>
+              </li>
+
+              <li class="fragment">
+                More resources at:
+                <ul class="fragment">
+                  <li>
+                    <a href="https://wiki.python.org/moin/Python2orPython3">Python2orPython3</a>
+                    on the Python Wiki
+                  </li>
+                  <li>good discussion in <a href="https://softwareengineering.stackexchange.com/a/63935">this Stack Overflow answer</a></li>
+                </ul>
+              </li>
+            </ul>
+          </section>
         </section>
 
         <section>
@@ -181,6 +281,7 @@
             href="https://en.wikipedia.org/wiki/Programming_chrestomathy">chrestomathy</a>"
             resources</h3>
           <ul>
+            <li class="fragment"><a href="https://wiki.python.org/moin/MovingToPythonFromOtherLanguages">MovingToPythonFromOtherLanguages</a> - on the Python Wiki</li>
             <li class="fragment"><a href="http://rosettacode.org/wiki/Main_Page">Rosetta Code</a></li>
             <li class="fragment"><a
               href="http://hyperpolyglot.org/scripting">Perl, PHP, Python,
@@ -194,17 +295,47 @@
             <h2 class="bar">Getting started</h2>
             <h3>(online tutorials / interpreters)</h3>
             <ul>
-              <li>Django Girl's <a href="http://tutorial.djangogirls.org/en/python_introduction/">Python introduction</a> (uses Python 3 in interactive mode)</li>
+              <li><a href="https://learnxinyminutes.com/docs/python/">Learn
+                X in Y minutes</a> (where <em>X</em>=Python)</li>
               <li>Python.org's <a
                 href="https://www.python.org/about/gettingstarted/">Getting
                 Started</a> guide</li>
-              <li><a href="https://learnxinyminutes.com/docs/python/">Learn
-                X in Y minutes</a> (where <em>X</em>=Python)</li>
+              <li>
+                the official Python tutorials:
+                <a href="https://docs.python.org/2/tutorial/index.html">2.x</a>,
+                <a href="https://docs.python.org/3/tutorial/index.html">3.x</a>
+                - python.org
+              </li>
+              <li>Django Girl's <a href="http://tutorial.djangogirls.org/en/python_introduction/">Python introduction</a> (uses Python 3 in interactive mode)</li>
               <li>OpenTechSchool's <a
                 href="https://opentechschool.github.io/python-beginners/">Intro
                 to programming with Python</a> (requires Python's
                 <code>tkinter</code> library); in English and German</li>
             </ul>
+          </section>
+
+          <section>
+            <h2 class="bar">Getting started (cont'd)</h2>
+            <h3>(installation on Linux)</h3>
+            <p class="fragment">
+              You already have it; type <code>python</code> in the shell.
+              <small>You might want to install the <code>python-pip</code>
+              package from your package manager, though.</small>
+            </p>
+
+            <h3 class="fragment">(installation on Windows)</h3>
+            <p class="fragment">
+              The official
+              <a href="https://www.python.org/downloads/windows/">"Python for Windows" installers</a>
+              are often enough (they include <code>pip</code> and will update
+              your system environment variables to add Python to your <code>%PATH%</code>
+              <small class="fragment">
+                However, you may prefer <a
+                href="https://www.anaconda.com/download/">Anaconda</a> if you're
+                using a lot of scientific libraries, <br>or need to use third-party
+                libraries that require compilation.
+              </small>
+            <p>
           </section>
 
           <section>
@@ -224,11 +355,8 @@
   # Matplotlib and NumPy (pulls in LLVM and X dependencies--grab a coffee)
   sudo port install py27-matplotlib py27-numpy
             </code></pre>
-          </section>
 
-          <section>
-            <h2 class="bar">Installing iPython / Jupyter</h2>
-            <h3>(on a Mac)</h3>
+            <h3 class="bar">Jupyter (née iPython Notebook)</h2>
             <pre><code class="bash">
   sudo port install py27-jupiter
 
@@ -241,24 +369,31 @@
 
         <section>
           <h2 class="bar">Online Notebooks</h2>
+          <p>
+            In principle, similar to Mathematica's
+            <a href="https://reference.wolfram.com/language/tutorial/UsingANotebookInterface.html">notebooks</a>
+            <br>or Matlab's <a href="http://de.mathworks.com/videos/managing-code-in-matlab-cell-mode-publishing-97208.html?requestedDomain=www.mathworks.com#">cell publishing mode</a>
+          </p>
+
           <ul>
-            <li class="nofragment">
+            <li class="fragment">
+              GitHub
+              <a href="https://github.com/blog/1995-github-jupyter-notebooks-3">renders Jupyter notebooks</a>
+              directly 
+            </li>
+            <li class="fragment">Jupyter was originally called "iPython Notebooks," but
+              now supports multiple languages</li>
+            <li class="fragment">Jupyter's <a
+              href="https://nbviewer.jupyter.org/">nbviewer</a> is frequently
+              used for library demos and "open science," especially demos with graphs</li>
+            <li class="fragment">
+              also:
               <a href="https://cloud.sagemath.com">SageMathCloud</a>
               <ul class="fragment">
                 <li>Allows embedding of R, <em>LaTeX</em>, and <a
                   href="https://jupyter.org/">Jupyter notebooks</a></li>
               </ul>
             </li>
-            <li class="fragment">Jupyter was originally called "iPython Notebooks," but
-              now supports multiple languages
-              <ul>
-                <li class="fragment">Jupyter's <a
-                  href="https://nbviewer.jupyter.org/">nbviewer</a> is frequently
-                  used for library demos and "open science"</li>
-              </ul>
-            </li>
-            <li class="fragment"> principle, similar to Mathematica's <a href="https://reference.wolfram.com/language/tutorial/UsingANotebookInterface.html">notebooks</a></li>
-            <li class="fragment">or Matlab's <a href="http://de.mathworks.com/videos/managing-code-in-matlab-cell-mode-publishing-97208.html?requestedDomain=www.mathworks.com#">cell publishing mode</a></li>
           </ul>
         </section> <!-- online notebooks -->
 
@@ -287,24 +422,6 @@
         </section>
 
         <section>
-          <!-- <section> -->
-          <!--   <h2 class="bar">Credits (cont'd)</h2> -->
-          <!--   <h3>Images</h3> -->
-          <!--   <ul> -->
-          <!--     <li>Flickr user <a -->
-          <!--       href="https://www.flickr.com/photos/blueridgekitties">blueridgekitties</a></li> -->
-          <!--     <li>Flickr user <a -->
-          <!--       href="https://www.flickr.com/photos/71183136@N08">Science and -->
-          <!--       Plants for Schools</a></li> -->
-          <!--     <li><a href="https://www.flickr.com/photos/inra_dist/"> -->
-          <!--       Institut national de la recherche agronomique</a> (INRA) -->
-          <!--     </li> -->
-          <!--     <li><a -->
-          <!--       href="https://commons.wikimedia.org/wiki/Main_Page">Wikimedia -->
-          <!--     Commons</a></li> -->
-          <!--   </ul> -->
-          <!-- </section> -->
-
           <section>
             <h1 class="bar">Links</h1>
             <ul>
@@ -316,6 +433,12 @@
               <li>
                 <a href="https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/">VIM
                 and Python - a Match Made in Heaven</a>
+              </li>
+              <li>
+                <a href="https://github.com/christoomey/vim-tmux-navigator">christoomey/vim-tmux-navigator</a>
+                - seamless navigation between
+                <a href="https://robots.thoughtbot.com/a-tmux-crash-course">tmux</a>
+                panes and vim splits (requires Vim 8.x)
               </li>
             </ul>
           </section>
