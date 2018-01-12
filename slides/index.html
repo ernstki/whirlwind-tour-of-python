@@ -310,9 +310,9 @@ print("Hello from Python 3!")</code></pre>
 
         <section>
           <h2 class="bar">Python compared to...</h2>
-          <h3>Programming "<a
+          <h4>Programming "<a
             href="https://en.wikipedia.org/wiki/Programming_chrestomathy">chrestomathy</a>"
-            resources</h3>
+            resources</h4>
           <ul>
             <li class="fragment"><a href="https://wiki.python.org/moin/MovingToPythonFromOtherLanguages">MovingToPythonFromOtherLanguages</a> - on the Python Wiki</li>
             <li class="fragment">
@@ -328,7 +328,7 @@ print("Hello from Python 3!")</code></pre>
         <section>
           <section>
             <h2 class="bar">Getting started</h2>
-            <h3>(online tutorials / interpreters)</h3>
+            <h4>(online tutorials / interpreters)</h4>
             <ul>
               <li><a href="https://learnxinyminutes.com/docs/python/">Learn
                 X in Y minutes</a> (where <em>X</em>=Python)</li>
@@ -352,25 +352,27 @@ print("Hello from Python 3!")</code></pre>
           <section>
             <h3 class="bar">Getting started (cont'd)</h3>
             <h4>(installation on Linux)</h4>
-            <p class="fragment">
+            <p class="nofragment">
               You already have it; type <code>python</code> in the shell.
               <small>You might want to install the <code>python-pip</code>
               package from your package manager, though.</small>
             </p>
 
-            <h4 class="fragment">(installation on Windows)</h4>
-            <p class="fragment">
-              The official
-              <a href="https://www.python.org/downloads/windows/">"Python for Windows" installers</a>
-              are often enough (they include <code>pip</code> and will update
-              your system environment variables to add Python to your <code>%PATH%</code>
-              <small class="fragment">
-                However, you may prefer <a
-                href="https://www.anaconda.com/download/">Anaconda</a> if you're
-                using a lot of scientific libraries, <br>or need to use third-party
-                libraries that require compilation.
-              </small>
-            <p>
+            <div class="fragment">
+              <h4 class="nofragment">(installation on Windows)</h4>
+              <p class="nofragment">
+                The official
+                <a href="https://www.python.org/downloads/windows/">"Python for Windows" installers</a>
+                are often enough (they include <code>pip</code> and will update
+                your system environment variables to add Python to your <code>%PATH%</code>
+                <small class="fragment">
+                  However, you may prefer <a
+                  href="https://www.anaconda.com/download/">Anaconda</a> if you're
+                  using a lot of scientific libraries, <br>or need to use third-party
+                  libraries that require compilation.
+                </small>
+              <p>
+            </div>
           </section>
 
           <section>
@@ -391,8 +393,8 @@ print("Hello from Python 3!")</code></pre>
   sudo port install py27-matplotlib py27-numpy
             </code></pre>
 
-            <h4 class="bar">Jupyter (née iPython Notebook)</h4>
-            <pre><code class="bash">
+            <h4 class="bar fragment">Jupyter (née iPython Notebook)</h4>
+            <pre class="fragment"><code class="bash">
   sudo port install py27-jupiter
 
   # Starting the notebook server (opens automatically in default browser)
@@ -424,6 +426,10 @@ print("Hello from Python 3!")</code></pre>
                   included with this project)
                 </li>
               </ul>
+            </li>
+            <li class="fragment">
+              <a href="https://tfwebdev.research.cchmc.org/gitlab/ern6xv/whirlwind-tour-of-python/blob/master/intro.ipynb">
+              GitLab does, too</a>, actually
             </li>
             <li class="fragment">Jupyter was originally called "iPython Notebooks," but
               now supports multiple languages</li>
@@ -474,11 +480,15 @@ print("Hello from Python 3!")</code></pre>
           <section>
             <h1 class="bar">Links</h1>
             <ul>
+              <li><a href="https://github.com/jonathanslenders/ptpython/">ptpython</a>
+                - a really great alternative
+                <a href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">REPL</a>
+              </li>
               <li><a href="https://nbviewer.jupyter.org/">nbviewer</a> - the
                 Jupyter Project's online notebook viewer</li>
-              <li><a href="https://github.com/defunkt/gist">defunkt's
+              <!--li><a href="https://github.com/defunkt/gist">defunkt's
                 <code>gist</code> Ruby gem</a> - create GitHub gists from the command line
-              </li>
+              </li-->
               <li>
                 <a href="https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/">VIM
                 and Python - a Match Made in Heaven</a>
@@ -495,8 +505,11 @@ print("Hello from Python 3!")</code></pre>
 
 				<section data-background="img/blueridgekitties_3823220154.jpg">
 					<h1 class="bar">SIGH, FINALLY</h1>
-          <h4>Thanks for your kind attention. You rock.</h4>
-          <p><big><code>;)</code></big></p>
+          <h4>Thanks for your kind attention. You rock. <code>;)</code></h4>
+          <div class="fragment">
+            <h5>So here's a fluffy kitten.</h5>
+            <img class="plain" src="img/go_alone_kitten.jpg">
+          </div>
 				</section>
 
 
