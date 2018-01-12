@@ -23,38 +23,40 @@ def get_results_download_links(with_curl=True):
     """
     
     with requests.Session() as s:
-        # one initial request to the "main" page is necessary to get a PHP
-        # session ID
-        r = s.get(BASE_URL + 'main.php')
+        # I think this initial request was necessary to get a valid PHP
+        # session ID (we need to fetch this later to set a cookie for 'curl')
+        response = s.get(BASE_URL + 'main.php')
 
         # assert that the response code is 2xx (200 series) = "no error"
-        assert r.ok
+        assert response.ok
 
         # auth.prompt_auth() returns a tuple of (username, password)
-        (u,p) = auth.prompt_auth()
-        r = s.post(BASE_URL + 'logon2.php',
+        (u, p) = auth.prompt_auth()
+        response = s.post(BASE_URL + 'logon2.php',
                    data={'username': u, 'password': p})
-        assert r.ok
+        assert response.ok
 
         # make sure the response text has "LDAP login OK" in it; this
         # assertion will fail if you give invalid credentials because
         # re.search() will return None
-        assert re.search('LDAP login OK', r.text)
+        assert re.search('LDAP login OK', response.text)
 
-        # this request will have the "authenticated" PHP session ID in it
-        r = s.get(BASE_URL + 'main.php')
-        assert r.ok
+        # this requests is authenticated, so this time the response contains
+        # list of sequencing results available for download
+        response = s.get(BASE_URL + 'main.php')
+        assert response.ok
 
         # fetch the response text as an ElementTree that lxml can manipulate
-        html = lxml.html.fromstring(r.text)
+        html = lxml.html.fromstring(response.text)
 
         # get all the <a> (anchor) tags within <ol><li> tags
         results_anchors = html.xpath('//ol/li/a')
 
+        # iterate over each one and fetch the "FULL DOWNLOAD" link targets
         for a in results_anchors:
-            r = s.get(BASE_URL + a.attrib['href'])
-            assert r.ok
-            html = lxml.html.fromstring(r.text)
+            response = s.get(BASE_URL + a.attrib['href'])
+            assert response.ok
+            html = lxml.html.fromstring(response.text)
 
             # results download link extracted from the parent <a>'s href
             # attribute which contains <b>FULL DOWNLOAD</b>; XPath magic
@@ -89,7 +91,7 @@ if __name__ == '__main__':
                         help="create 'curl' command lines with the "
                              "authentication cookie already included",
                         action='store_true', dest='with_curl')
+
     options = parser.parse_args()
-    
     get_results_download_links(options.with_curl)
 
